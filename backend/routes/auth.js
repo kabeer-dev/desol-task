@@ -7,7 +7,7 @@ const { login } = require("../controllers/auth");
 router.post(
   '/login',
   [
-    body('email').notEmpty().withMessage('Email is required').if(body("new_email").notEmpty()).isEmail(),
+    body('email').notEmpty().withMessage('Email is required').isEmail().withMessage('Not a Valid Email'),
     body('password').notEmpty().withMessage('Password is required')
   ],
   validateRequest,
